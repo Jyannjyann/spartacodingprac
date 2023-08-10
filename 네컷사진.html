@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>코딩네컷</title>
+	<style>
+    /* 이서윤체 폰트 적용을 위한 코드 */
+    @font-face {
+      font-family: "LeeSeoyun";
+      src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+        format("woff");
+      font-weight: normal;
+      font-style: normal;
+    }
+    body {
+        font-family: "LeeSeoyun";
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        background-image: url("./background.png");
+    }
+    .container {
+        width: 190px;
+    }
+    .photos {
+        background-attachment: local;
+        background-size: 100px 100px;
+        
+    }
+    #back {
+        width: 400px;
+        height: 570px;
+        background-color: #ff9d73;
+        position:relative;
+        top: 8%;
+        left: 48%;
+        transform: translate( -48%, -8%);
+
+        z-index: 1;
+    }
+    .photo-frame {
+        background-color: white;
+        margin: 15px 20px;
+        height: 200px;
+        background-size: contain;
+        position: relative;
+        cursor: pointer;
+    }
+    .footer {
+        width:200px;
+        height: 200px;
+        position: relative;
+        bottom:93%;
+        right: 25%;
+        transform: translate( -25%, 93%);
+        z-index: 5;
+        
+    }
+    
+    .f-title {
+        font-size: 25px;
+        font-weight: 900;
+        color: white;
+    }
+
+    .f-date {
+        font-size: 15px;
+        font-weight: 500;
+        color: white;
+        
+    }
+    #image1 {
+        background-image: url("./photo1.jpg");
+        position: relative;
+        top:200%;
+        right:27%;
+        transform: translate( -27%, -200%);
+        z-index: 5;
+    }
+    #image2 {
+        background-image: url("./photo2.jpg");
+        position: relative;
+        top:190%;
+        right:27%;
+        transform: translate( -27%, -190%);
+        z-index: 5;
+    }
+    #image3 {
+        background-image: url("./photo3.jpg");
+        position: relative;
+        left:28%;
+        top:450%;
+        transform: translate( 28%, -450%);
+        z-index: 5;
+    }
+    #image4 {
+        background-image: url("./photo4.jpg");
+        position: relative;
+        left:28%;
+        top:440%;
+        transform: translate( 28%, -440%);
+        z-index: 5;
+    }
+    .photo-description {
+        /* 배경은 검게, 글자는 흰 색으로 */
+        color: white;
+        font-size: 20px;
+        background-color: black;
+    
+        /* 가로 너비는 내부 콘텐츠에 딱 맞게! */
+        width: 80px;
+        padding: 0 5px;
+        margin-bottom: 10px;
+    
+        /* 경계선 */
+        border-radius: 10px;
+        position: relative;
+        bottom: -200px;
+        transform: translate(-50%);
+        left: 25%;
+        opacity: 0;
+    }
+    .showText {
+        opacity: 1;
+      transition: opacity 0.5s linear;
+    }
+    .hideText {
+        opacity: 0;
+    }
+	</style>
+    <script>
+        function showText(number) {
+            if (number === 1) {
+              document.querySelector("#desc1").classList.remove("hideText");
+              document.querySelector("#desc1").classList.add("showText");
+            } else if (number === 2) {
+              document.querySelector("#desc2").classList.remove("hideText");
+              document.querySelector("#desc2").classList.add("showText");
+            } else if (number === 3) {
+                document.querySelector("#desc3").classList.remove("hideText");
+                document.querySelector("#desc3").classList.add("showText");
+            }else {
+              document.querySelector("#desc4").classList.remove("hideText");
+              document.querySelector("#desc4").classList.add("showText");
+            }
+          }
+          function hideText(number) {
+            if (number === 1) {
+              document.querySelector("#desc1").classList.remove("showText");
+              document.querySelector("#desc1").classList.add("hideText");
+            } else if (number === 2) {
+              document.querySelector("#desc2").classList.remove("showText");
+              document.querySelector("#desc2").classList.add("hideText");
+            } else if (number === 3) {
+                document.querySelector("#desc3").classList.remove("showText");
+                document.querySelector("#desc3").classList.add("hideText");
+            } else {
+              document.querySelector("#desc4").classList.remove("showText");
+              document.querySelector("#desc4").classList.add("hideText");
+            }
+          }
+          function alertText(number) {
+            alert(`${number}번째 풍경이에요!`);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="back">
+        </div>
+		<div class="photos">
+            <div id="image1"
+            class="photo-frame"
+            onmouseover="showText(1)"
+            onmouseout="hideText(1)"
+            onclick="alertText(1)">
+				<span id="desc1" class="photo-description">
+					휴게소 하늘
+				</span>
+			</div>
+            <div id="image2" class="photo-frame" onmouseover="showText(2)"
+            onmouseout="hideText(2)"
+            onclick="alertText(2)">
+				<span id="desc2" class="photo-description">
+					경복궁의 빛
+				</span>
+			</div>
+            <div id="image3" class="photo-frame" onmouseover="showText(3)"
+            onmouseout="hideText(3)"
+            onclick="alertText(3)">
+				<span id="desc3" class="photo-description">
+					부산 경치
+				</span>
+			</div>
+            <div id="image4" class="photo-frame" onmouseover="showText(4)"
+            onmouseout="hideText(4)"
+            onclick="alertText(4)">
+                <span id="desc4" class="photo-description">
+                    롯데타워
+                </span>
+			</div>
+		</div>
+		<div class="footer">
+            <center>
+			    <p class="f-title">For My lovings</p>
+			    <p class="f-date">2023.01.23</p>
+            </center>
+		</div>
+    </div>
+</body>
+</html>
